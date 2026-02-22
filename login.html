@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | BeaExpert - Data & AI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #040d1a; /* Cor sólida, sem gradientes */
+        }
+
+        .clean-card {
+            background: transparent; /* Sem cor de fundo no cartão */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-field {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .logo-text {
+            letter-spacing: -0.025em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-md animate-in">
+        <!-- Secção do Logo -->
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-white logo-text">
+                Bea<span class="text-blue-500">Expert</span>
+            </h1>
+            <p class="text-gray-500 mt-2 text-sm uppercase tracking-widest font-medium">Data Excellence</p>
+        </div>
+
+        <!-- Cartão de Login (Agora sem fundo) -->
+        <div class="clean-card rounded-2xl p-8 md:p-10">
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-white">Login</h2>
+                <p class="text-gray-500 text-sm mt-1">Aceda ao seu painel de controlo</p>
+            </div>
+
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="space-y-6">
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 ml-1">E-mail</label>
+                        <input type="email" 
+                               required 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white placeholder-gray-600"
+                               placeholder="exemplo@beaexpert.eu">
+                    </div>
+
+                    <!-- Palavra-passe -->
+                    <div>
+                        <div class="flex justify-between mb-2 ml-1">
+                            <label class="text-xs font-semibold text-gray-400 uppercase">Palavra-passe</label>
+                            <a href="#" class="text-xs text-blue-500 hover:text-blue-400">Esqueceu-se?</a>
+                        </div>
+                        <input type="password" 
+                               required 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white placeholder-gray-600"
+                               placeholder="••••••••">
+                    </div>
+
+                    <!-- Botão -->
+                    <button type="submit" class="btn-primary w-full py-4 rounded-lg text-white font-bold text-sm mt-2 uppercase tracking-wider">
+                        Entrar
+                    </button>
+                </div>
+            </form>
+
+            <div id="successMsg" class="hidden mt-6 p-4 rounded-lg border border-green-500/30 text-green-500 text-sm text-center">
+                Autenticação bem-sucedida.
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="text-center mt-12">
+            <div class="flex justify-center space-x-6 text-xs font-medium text-gray-600 uppercase tracking-tighter">
+                <a href="#" class="hover:text-blue-500 transition-colors">Privacidade</a>
+                <a href="#" class="hover:text-blue-500 transition-colors">Termos de Uso</a>
+                <a href="#" class="hover:text-blue-500 transition-colors">Suporte</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const msg = document.getElementById('successMsg');
+            
+            btn.innerHTML = 'A carregar...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                msg.classList.remove('hidden');
+                btn.innerHTML = 'Concluído';
+                btn.style.backgroundColor = '#10b981';
+            }, 1000);
+
+            return false;
+        }
+    </script>
+</body>
+</html>
