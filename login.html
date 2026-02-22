@@ -62,7 +62,7 @@
             <p class="text-gray-500 mt-2 text-sm uppercase tracking-widest font-medium">Data Excellence</p>
         </div>
 
-        <!-- Cartão de Login (Agora sem fundo) -->
+        <!-- Cartão de Login -->
         <div class="clean-card rounded-2xl p-8 md:p-10">
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-white">Login</h2>
@@ -71,6 +71,15 @@
 
             <form id="loginForm" onsubmit="return handleLogin(event)">
                 <div class="space-y-6">
+                    <!-- Tenant (Instância/Organização) -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 ml-1">Tenant</label>
+                        <input type="text" 
+                               required 
+                               class="input-field w-full px-4 py-3 rounded-lg text-white placeholder-gray-600"
+                               placeholder="id-da-organizacao">
+                    </div>
+
                     <!-- Email -->
                     <div>
                         <label class="block text-xs font-semibold text-gray-400 uppercase mb-2 ml-1">E-mail</label>
