@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Informação - BeaExpert</title>
+    <style>
+        :root {
+            --primary-color: #1d4ed8;
+            --primary-hover: #1d4ed8;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .form-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 520px;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: #1d4ed815;
+            color: var(--primary-color);
+            border-radius: 12px;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .form-header h2 {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.025em;
+        }
+
+        .form-header p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 14px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+
+        .input-container input {
+            padding-left: 38px;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            background-color: #ffffff;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px #1d4ed815;
+        }
+
+        .form-group-checkbox {
+            margin: 20px 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .checkbox-label input {
+            margin-right: 10px;
+            margin-top: 2px;
+            accent-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px #1d4ed825;
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <div class="form-header">
+        <div class="icon-badge">📩</div>
+        <h2>Pedir Mais Informações</h2>
+        <p>A equipa BeaExpert responderá diretamente para o seu e-mail de contacto.</p>
+    </div>
+
+    <!-- Formulário de Envio -->
+    <form action="https://formspree.io/f/seu_id_aqui" method="POST">
+        
+        <!-- Destinatário Principal -->
+        <input type="hidden" name="_to" value="geral@beaexpert.eu">
+        
+        <!-- Configuração de Redirecionamento de Sucesso (Formspree) -->
+        <input type="hidden" name="_next" value="https://beaexpert.eu">
+
+        <!-- Campo: Nome Completo -->
+        <div class="form-group">
+            <label for="nome">Nome Completo *</label>
+            <div class="input-container">
+                <span class="icon">&#128100;</span>
+                <input type="text" id="nome" name="nome" placeholder="Ex: João Silva" required>
+            </div>
+        </div>
+
+        <!-- Campo: Email -->
+        <div class="form-group">
+            <label for="email">E-mail de Contacto *</label>
+            <div class="input-container">
+                <span class="icon">&#9993;</span>
+                <input type="email" id="email" name="email" placeholder="Ex: joao@empresa.com" required>
+            </div>
+        </div>
+
+        <!-- Campo: Telefone -->
+        <div class="form-group">
+            <label for="telefone">Contacto Telefónico</label>
+            <div class="input-container">
+                <span class="icon">&#128222;</span>
+                <input type="tel" id="telefone" name="telefone" placeholder="Ex: +351 912 345 678">
+            </div>
+        </div>
+
+        <!-- Campo: Assunto/Interesse -->
+        <div class="form-group">
+            <label for="assunto">Área de Interesse *</label>
+            <select id="assunto" name="assunto" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="Consultoria de TI">Consultoria de TI & Auditoria</option>
+                <option value="Formação Tecnológica">Formação Profissional</option>
+                <option value="Servicos Especializados">Serviços de Informática</option>
+                <option value="Outro">Outro assunto</option>
+            </select>
+        </div>
+
+        <!-- Campo: Mensagem -->
+        <div class="form-group">
+            <label for="mensagem">Como podemos ajudar? *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva a sua dúvida ou pedido de orçamento em detalhe..." required></textarea>
+        </div>
+
+        <!-- Campo: Aceitação de Termos (RGPD) -->
+        <div class="form-group-checkbox">
+            <label class="checkbox-label">
+                <input type="checkbox" name="rgpd_autorizacao" required>
+                <span>Autorizo o tratamento dos dados pela BeaExpert para resposta ao contacto. *</span>
+            </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Enviar Pedido de Informação</button>
+
+        <p class="footer-note">
+            Este formulário é gerido de forma segura. <br>
+            A BeaExpert respeita a sua privacidade.
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
